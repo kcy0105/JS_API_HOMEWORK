@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\00. MainGame">
+      <UniqueIdentifier>{9ff37965-3763-400e-bef6-417996f98645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Manager">
+      <UniqueIdentifier>{375117a8-dffc-4d8a-bc3c-b86caae3753b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers">
+      <UniqueIdentifier>{66799550-e476-4234-a5d0-698ee8d6c1ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\Andromeda">
+      <UniqueIdentifier>{f4dc62cb-ed29-41bf-a6df-e1db3f2b9335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Obj">
+      <UniqueIdentifier>{29a4127e-eb92-4dd1-aa96-09c9f0eb1ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene">
+      <UniqueIdentifier>{0900feb6-3f8b-47a0-a244-b874702a3c30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scene\Game">
+      <UniqueIdentifier>{c4689027-8021-4a17-91d7-bc158c1cf7be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Obj\Game">
+      <UniqueIdentifier>{d144291c-f023-4728-90a7-ddf9b9dd4ba3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultWindow.h">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>소스 파일\99. Headers\Andromeda</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>소스 파일\99. Headers\Andromeda</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>소스 파일\99. Headers\Andromeda</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainGame.h">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>소스 파일\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CDevScene.h">
+      <Filter>소스 파일\02. Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CObj.h">
+      <Filter>소스 파일\03. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CBullet.h">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CInputManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Values.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoundary.h">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultWindow.cpp">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainGame.cpp">
+      <Filter>소스 파일\00. MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>소스 파일\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CDevScene.cpp">
+      <Filter>소스 파일\02. Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CObj.cpp">
+      <Filter>소스 파일\03. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet.cpp">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CInputManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoundary.cpp">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DefaultWindow.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="DefaultWindow.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
