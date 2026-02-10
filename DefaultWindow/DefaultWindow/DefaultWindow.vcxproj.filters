@@ -77,7 +77,7 @@
     <ClInclude Include="CScene.h">
       <Filter>소스 파일\02. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="CDevScene.h">
+    <ClInclude Include="CGameScene.h">
       <Filter>소스 파일\02. Scene\Game</Filter>
     </ClInclude>
     <ClInclude Include="CObj.h">
@@ -136,7 +136,7 @@
     <ClCompile Include="CScene.cpp">
       <Filter>소스 파일\02. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="CDevScene.cpp">
+    <ClCompile Include="CGameScene.cpp">
       <Filter>소스 파일\02. Scene\Game</Filter>
     </ClCompile>
     <ClCompile Include="CObj.cpp">

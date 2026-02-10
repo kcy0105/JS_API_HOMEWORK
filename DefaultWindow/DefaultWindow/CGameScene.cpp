@@ -1,18 +1,18 @@
 #include "pch.h"
-#include "CDevScene.h"
+#include "CGameScene.h"
 #include "CPlayer.h"
 #include "CWall.h"
 #include "CMonster.h"
 
-CDevScene::CDevScene()
+CGameScene::CGameScene()
 {
 }
 
-CDevScene::~CDevScene()
+CGameScene::~CGameScene()
 {
 }
 
-void CDevScene::Initialize()
+void CGameScene::Initialize()
 {
 	__super::Initialize();
 
@@ -43,12 +43,12 @@ void CDevScene::Initialize()
 	pMonster->SetPos({ 450, 200 });
 }
 
-void CDevScene::Update()
+void CGameScene::Update()
 {
 	__super::Update();
 }
 
-void CDevScene::Release()
+void CGameScene::Release()
 {
 	__super::Release();
 }

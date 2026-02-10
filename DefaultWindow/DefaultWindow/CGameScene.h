@@ -3,11 +3,11 @@
 
 class CPlayer;
 
-class CDevScene : public CScene
+class CGameScene : public CScene
 {
 public:
-	CDevScene();
-	virtual ~CDevScene() override;
+	CGameScene();
+	virtual ~CGameScene() override;
 
 	virtual void Initialize() override;
 	virtual void Update() override;

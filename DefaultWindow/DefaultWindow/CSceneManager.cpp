@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CSceneManager.h"
 #include "CScene.h"
-#include "CDevScene.h"
+#include "CGameScene.h"
 
 void CSceneManager::Initialize()
 {
@@ -37,8 +37,8 @@ void CSceneManager::ChangeScene(SceneType sceneType)
 
 	switch (sceneType)
 	{
-	case SceneType::DevScene:
-		newScene = new CDevScene();
+	case SceneType::GameScene:
+		newScene = new CGameScene();
 	}
 
 	if (m_Scene)

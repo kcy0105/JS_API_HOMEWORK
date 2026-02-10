@@ -29,7 +29,7 @@ void CMainGame::Initialize()
 	GET_SINGLE(CInputManager)->Initialize();
 	GET_SINGLE(CSceneManager)->Initialize();
 
-	GET_SINGLE(CSceneManager)->ChangeScene(SceneType::DevScene);
+	GET_SINGLE(CSceneManager)->ChangeScene(SceneType::GameScene);
 }
 
 void CMainGame::Update()

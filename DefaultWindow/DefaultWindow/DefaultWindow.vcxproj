@@ -145,7 +145,7 @@
     <ClInclude Include="CScene.h" />
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="Define.h" />
-    <ClInclude Include="CDevScene.h" />
+    <ClInclude Include="CGameScene.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
@@ -172,7 +172,7 @@
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="DefaultWindow.cpp" />
-    <ClCompile Include="CDevScene.cpp" />
+    <ClCompile Include="CGameScene.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="CSceneManager.cpp" />
     <ClCompile Include="CTimeManager.cpp" />
