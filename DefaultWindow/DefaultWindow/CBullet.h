@@ -14,10 +14,16 @@ public:
 
 public:
 	void SetDirection(Vec2 dir) { m_dir = dir; }
+	void SetOwner(CObj* owner) { m_owner = owner; }
+
+public:
+	virtual void OnColliderBeginOverlap(CCollider* collider, CCollider* other) override;
+	virtual void OnColliderEndOverlap(CCollider* collider, CCollider* other) override;
 
 private:
 	float m_fRadius = 10;
 	Vec2 m_dir = {};
-	float m_fSpeed = 300;
+	float m_fSpeed = 500;
+	CObj* m_owner = {};
 };
 

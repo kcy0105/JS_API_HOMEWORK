@@ -8,7 +8,7 @@ class CObj;
 
 class Utils
 {
-public: // Draw
+public:
 	static void DrawText(HDC hDC, Pos pos, const wstring& str);
 	static void DrawRect(HDC hDC, Pos pos, int32 w, int32 h);
 	static void DrawCircle(HDC hDC, Pos pos, int32 radius);

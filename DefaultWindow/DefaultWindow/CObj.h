@@ -1,25 +1,40 @@
 #pragma once
+
+class CComponent;
+class CCollider;
+
 class CObj
 {
 public:
-	CObj(ObjectType type);
+	CObj();
 	virtual ~CObj();
 
 public:
-	virtual void Initialize() abstract;
-	virtual void Update() abstract;
-	virtual void Render(HDC hDC) abstract;
-	virtual void Release() abstract;
+	virtual void Initialize();
+	virtual void Update();
+	virtual void Render(HDC hDC);
+	virtual void Release();
 
 public:
-	ObjectType GetObjectType() const { return m_type; }
-
 	Pos GetPos() const { return m_pos; }
 	void SetPos(Pos pos) { m_pos = pos; }
+	ObjectType GetObjectType() const { return m_objectType; }
+	void SetObjectType(ObjectType objectType) { m_objectType = objectType; }
 
 protected:
-	ObjectType m_type = ObjectType::None;
 	Pos m_pos = {};
+	ObjectType m_objectType = ObjectType::None;
+
+public:
+	void AddComponent(CComponent* component);
+	void RemoveComponent(CComponent* component);
+
+protected:
+	vector<CComponent*> m_vecComponents;
+
+public:
+	virtual void OnColliderBeginOverlap(CCollider* collider, CCollider* other);
+	virtual void OnColliderEndOverlap(CCollider* collider, CCollider* other);
 
 public:
 	template<typename T>
@@ -30,13 +45,19 @@ public:
 		T* pObj = new T();
 		pObj->Initialize();
 
-		GET_SINGLE(CSceneManager)->GetScene()->AddObject(pObj);
+		GET_SINGLE(CSceneManager)->GetScene()->RegisterObject(pObj);
 
 		return pObj;
 	}
 	static void DestroyObject(CObj* pObj);
 
 protected:
-	void Destroy() { DestroyObject(this); }
+	void Destroy() { bIsDead = true; }
+
+public:
+	bool IsDead() { return bIsDead; }
+
+private:
+	bool bIsDead = false;
 };
 

@@ -63,14 +63,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            uint64 nowTick = ::GetTickCount64();
-            
-            if (nowTick - prevTick >= 30)
+            //uint64 nowTick = ::GetTickCount64();
+            //
+            //if (nowTick - prevTick >= 30)
             {
                 MainGame.Update();
                 MainGame.Render();
 
-                prevTick = nowTick;
+                //prevTick = nowTick;
             }
         }
     }

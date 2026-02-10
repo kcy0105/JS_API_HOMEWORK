@@ -130,8 +130,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CBoundary.h" />
+    <ClInclude Include="CWall.h" />
+    <ClInclude Include="CBoxCollider.h" />
     <ClInclude Include="CBullet.h" />
+    <ClInclude Include="CCircleCollider.h" />
+    <ClInclude Include="CCollider.h" />
+    <ClInclude Include="CCollisionManager.h" />
+    <ClInclude Include="CComponent.h" />
     <ClInclude Include="CInputManager.h" />
     <ClInclude Include="CMainGame.h" />
     <ClInclude Include="CMonster.h" />
@@ -153,8 +158,13 @@
     <ClInclude Include="Values.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CBoundary.cpp" />
+    <ClCompile Include="CWall.cpp" />
+    <ClCompile Include="CBoxCollider.cpp" />
     <ClCompile Include="CBullet.cpp" />
+    <ClCompile Include="CCircleCollider.cpp" />
+    <ClCompile Include="CCollider.cpp" />
+    <ClCompile Include="CCollisionManager.cpp" />
+    <ClCompile Include="CComponent.cpp" />
     <ClCompile Include="CInputManager.cpp" />
     <ClCompile Include="CMainGame.cpp" />
     <ClCompile Include="CMonster.cpp" />

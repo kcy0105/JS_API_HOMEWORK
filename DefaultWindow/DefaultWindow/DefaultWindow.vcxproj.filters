@@ -33,6 +33,12 @@
     <Filter Include="소스 파일\03. Obj\Game">
       <UniqueIdentifier>{d144291c-f023-4728-90a7-ddf9b9dd4ba3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\04. Component">
+      <UniqueIdentifier>{5f875e84-1c00-4532-a712-12f78c31f45c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Component\Collision">
+      <UniqueIdentifier>{64c983c0-146c-434e-b97d-a75323b15068}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -92,11 +98,26 @@
     <ClInclude Include="Values.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
-    <ClInclude Include="CBoundary.h">
+    <ClInclude Include="CWall.h">
       <Filter>소스 파일\03. Obj\Game</Filter>
     </ClInclude>
     <ClInclude Include="CMonster.h">
       <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CComponent.h">
+      <Filter>소스 파일\04. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoxCollider.h">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CCircleCollider.h">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollisionManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -136,11 +157,26 @@
     <ClCompile Include="CInputManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="CBoundary.cpp">
+    <ClCompile Include="CWall.cpp">
       <Filter>소스 파일\03. Obj\Game</Filter>
     </ClCompile>
     <ClCompile Include="CMonster.cpp">
       <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CComponent.cpp">
+      <Filter>소스 파일\04. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoxCollider.cpp">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CCircleCollider.cpp">
+      <Filter>소스 파일\04. Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

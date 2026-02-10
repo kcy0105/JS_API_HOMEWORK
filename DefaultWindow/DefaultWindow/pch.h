@@ -1,10 +1,13 @@
 #pragma once
+#define NOMINMAX
 #include <windows.h>
 
 #include <vector>
 #include <algorithm>
 #include <format>
 #include <string>
+#include <unordered_set>
+#include <unordered_map>
 using namespace std;
 
 #include "Types.h"

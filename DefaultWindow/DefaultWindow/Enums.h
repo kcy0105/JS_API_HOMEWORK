@@ -6,11 +6,17 @@ enum class SceneType
 	DevScene,
 };
 
+enum class ColliderType
+{
+	Box,
+	Circle,
+};
+
 enum class ObjectType
 {
 	None,
 	Player,
-	Monster,
 	Bullet,
-	Boundary,
+	Monster,
+	Wall,
 };

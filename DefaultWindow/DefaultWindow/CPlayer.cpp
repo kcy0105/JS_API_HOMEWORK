@@ -4,8 +4,9 @@
 #include "CInputManager.h"
 #include "CBullet.h"
 
-CPlayer::CPlayer() : CObj(ObjectType::Player)
+CPlayer::CPlayer()
 {
+	SetObjectType(ObjectType::Player);
 }
 
 CPlayer::~CPlayer()
@@ -14,70 +15,70 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize()
 {
+	__super::Initialize();
 }
 
 void CPlayer::Update()
 {
+	__super::Update();
+
 	float deltaTime = GET_SINGLE(CTimeManager)->GetDeltaTime();
 
-#pragma region 이동
-	Vec2 moveDir = { 0, 0 };
-	
+	if (GET_SINGLE(CInputManager)->GetButton(KeyType::Up))
+	{
+		m_pos += GetDirection() * deltaTime * 200;
+	}
+
+	if (GET_SINGLE(CInputManager)->GetButtonDown(KeyType::SpaceBar))
+	{
+		CBullet* pBullet = CObj::CreateObject<CBullet>();
+		pBullet->SetPos(m_pos);
+		pBullet->SetDirection(GetDirection());
+		pBullet->SetOwner(this);
+	}
+
+	float fAngleSpeed = 100;
 	if (GET_SINGLE(CInputManager)->GetButton(KeyType::Left))
 	{
-		moveDir += Vec2(-1, 0);
+		m_fAngle = m_fAngle + fAngleSpeed * deltaTime;
 	}
 	if (GET_SINGLE(CInputManager)->GetButton(KeyType::Right))
 	{
-		moveDir += Vec2(1, 0);
+		m_fAngle = m_fAngle - fAngleSpeed * deltaTime;
 	}
-	if (GET_SINGLE(CInputManager)->GetButton(KeyType::Up))
-	{
-		moveDir += Vec2(0, -1);
-	}
-	if (GET_SINGLE(CInputManager)->GetButton(KeyType::Down))
-	{
-		moveDir += Vec2(0, 1);
-	}
-
-	moveDir.Normalize();
-
-	m_pos += moveDir * deltaTime * 200;
-#pragma endregion
-
-#pragma region 총알 발사
-	if (GET_SINGLE(CInputManager)->GetButtonDown(KeyType::W))
-	{
-		CBullet* pBullet = CObj::CreateObject<CBullet>();
-		pBullet->SetPos(m_pos);
-		pBullet->SetDirection(Vec2(0, -1));
-	}
-	else if (GET_SINGLE(CInputManager)->GetButtonDown(KeyType::A))
-	{
-		CBullet* pBullet = CObj::CreateObject<CBullet>();
-		pBullet->SetPos(m_pos);
-		pBullet->SetDirection(Vec2(-1, 0));
-	}
-	else if (GET_SINGLE(CInputManager)->GetButtonDown(KeyType::S))
-	{
-		CBullet* pBullet = CObj::CreateObject<CBullet>();
-		pBullet->SetPos(m_pos);
-		pBullet->SetDirection(Vec2(0, 1));
-	}
-	else if (GET_SINGLE(CInputManager)->GetButtonDown(KeyType::D))
-	{
-		CBullet* pBullet = CObj::CreateObject<CBullet>();
-		pBullet->SetPos(m_pos);
-		pBullet->SetDirection(Vec2(1, 0));
-	}
-#pragma endregion
 }
 
 void CPlayer::Render(HDC hDC)
 {
+	__super::Render(hDC);
+
+	// Body
 	Utils::DrawCircle(hDC, m_pos, 25);
+
+	// Barrel
+	float w = 10;
+	float h1 = 50;
+	float h2 = 20;
+
+	Vec2 dir = GetDirection();
+
+	Vec2 m1 = m_pos + h1 * dir;
+	Vec2 m2 = m_pos - h2 * dir;
+	Vec2 a = m1 + w / 2 * Vec2(-dir.y, dir.x);
+	Vec2 b = m1 - w / 2 * Vec2(-dir.y, dir.x);
+	Vec2 c = m2 + w / 2 * Vec2(-dir.y, dir.x);
+	Vec2 d = m2 - w / 2 * Vec2(-dir.y, dir.x);
+
+	Utils::DrawLine(hDC, a, b);
+	Utils::DrawLine(hDC, b, d);
+	Utils::DrawLine(hDC, d, c);
+	Utils::DrawLine(hDC, c, a);
+
+	Utils::DrawCircle(hDC, m_pos, 10);
+
 }
 
 void CPlayer::Release()
 {
+	__super::Release();
 }

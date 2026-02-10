@@ -7,16 +7,17 @@ public:
 	CScene();
 	virtual ~CScene();
 
-	virtual void Initialize() abstract;
+	virtual void Initialize();
 	virtual void Update();
 	void Render(HDC hDC);
 	virtual void Release();
 
-	void AddObject(CObj* pObj);
-	void RemoveObject(CObj* pObj);
+	void RegisterObject(CObj* pObj);
+	void UnregisterObject(CObj* pObj);
 
 	void RenderObjects(HDC hDC);
 	void UpdateObjects();
+	void RemoveDeadObjects();
 
 private:
 	vector<int> m_ints;
