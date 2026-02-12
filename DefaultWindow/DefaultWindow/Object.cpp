@@ -2,15 +2,6 @@
 #include "Object.h"
 #include "Component.h"
 
-Object::Object()
-{
-}
-
-Object::~Object()
-{
-	
-}
-
 void Object::Init()
 {
 

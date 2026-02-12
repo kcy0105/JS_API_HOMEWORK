@@ -6,8 +6,8 @@ class BoxCollider;
 class Wall :public Object
 {
 public:
-	Wall();
-	virtual ~Wall() override;
+	Wall() {}
+	virtual ~Wall() {}
 
 	virtual void Init() override;
 	virtual void Update() override;

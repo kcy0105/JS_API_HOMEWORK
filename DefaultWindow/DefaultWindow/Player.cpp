@@ -2,20 +2,17 @@
 #include "Player.h"
 #include "TimeManager.h"
 #include "InputManager.h"
+#include "OrbitShield.h"
 #include "Bullet.h"
-
-Player::Player()
-{
-	SetObjectType(ObjectType::Player);
-}
-
-Player::~Player()
-{
-}
+#include "ScrewMissile.h"
 
 void Player::Init()
 {
 	__super::Init();
+
+	SetTag(L"Player");
+	_orbitShield = Object::CreateObject<OrbitShield>();
+	_orbitShield->SetOwner(this);
 }
 
 void Player::Update()
@@ -23,29 +20,60 @@ void Player::Update()
 	__super::Update();
 
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
-
-	if (GET_SINGLE(InputManager)->GetButton(KeyType::Up))
+	
+#pragma region MOVE
+	Vec2 moveDir = { 0, 0 };
+	if (GET_SINGLE(InputManager)->GetButton(KeyType::W))
 	{
-		_pos += GetDirection() * deltaTime * 200;
+		moveDir += Vec2(0, -1);
+	}
+	if (GET_SINGLE(InputManager)->GetButton(KeyType::A))
+	{
+		moveDir += Vec2(-1, 0);
+	}
+	if (GET_SINGLE(InputManager)->GetButton(KeyType::S))
+	{
+		moveDir += Vec2(0, 1);
+	}
+	if (GET_SINGLE(InputManager)->GetButton(KeyType::D))
+	{
+		moveDir += Vec2(1, 0);
 	}
 
-	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::SpaceBar))
-	{
-		Bullet* bullet = Object::CreateObject<Bullet>();
-		bullet->SetPos(_pos);
-		bullet->SetDirection(GetDirection());
-		bullet->SetOwner(this);
-	}
+	moveDir.Normalize();
+	_pos += moveDir * _moveSpeed * deltaTime;
+#pragma endregion
 
-	float angleSpeed = 100;
+#pragma region ROTATE BARREL
 	if (GET_SINGLE(InputManager)->GetButton(KeyType::Left))
 	{
-		_angle += angleSpeed * deltaTime;
+		_barrelAngle += _barrelSpeed * deltaTime;
 	}
 	if (GET_SINGLE(InputManager)->GetButton(KeyType::Right))
 	{
-		_angle -= angleSpeed * deltaTime;
+		_barrelAngle -= _barrelSpeed * deltaTime;
 	}
+#pragma endregion
+
+#pragma region FIRE
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::SpaceBar))
+	{
+		Projectile* bullet = Object::CreateObject<Bullet>();
+		bullet->SetPos(_pos);
+		bullet->SetDirection(Utils::GetDirection(_barrelAngle));
+		bullet->SetOwner(this);
+	}
+
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::Q))
+	{
+		Projectile* bullet = Object::CreateObject<ScrewMissile>();
+		bullet->SetPos(_pos);
+		bullet->SetDirection(Utils::GetDirection(_barrelAngle));
+		bullet->SetOwner(this);
+	}
+
+
+#pragma endregion
 }
 
 void Player::Render(HDC hdc)
@@ -60,7 +88,7 @@ void Player::Render(HDC hdc)
 	float h1 = 50;
 	float h2 = 20;
 
-	Vec2 dir = GetDirection();
+	Vec2 dir = Utils::GetDirection(_barrelAngle);
 
 	Vec2 m1 = _pos + h1 * dir;
 	Vec2 m2 = _pos - h2 * dir;
@@ -81,4 +109,7 @@ void Player::Render(HDC hdc)
 void Player::Release()
 {
 	__super::Release();
+
+	if (_orbitShield)
+		Object::DestroyObject(_orbitShield);
 }

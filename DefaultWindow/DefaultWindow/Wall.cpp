@@ -2,20 +2,12 @@
 #include "Wall.h"
 #include "BoxCollider.h"
 
-Wall::Wall()
-{
-	SetObjectType(ObjectType::Wall);
-
-	_boxCollider = AddComponent<BoxCollider>();
-}
-
-Wall::~Wall()
-{
-}
-
 void Wall::Init()
 {
 	__super::Init();
+
+	SetTag(L"Wall");
+	_boxCollider = AddComponent<BoxCollider>();
 }
 
 void Wall::Update()

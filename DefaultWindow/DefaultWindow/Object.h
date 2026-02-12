@@ -6,24 +6,29 @@ class Collider;
 class Object
 {
 public:
-	Object();
-	virtual ~Object();
+	Object() {};
+	virtual ~Object() {};
 
-public:
+public: // 자식 클래스에서 __super.method() 호출
 	virtual void Init();
 	virtual void Update();
 	virtual void Render(HDC hdc);
 	virtual void Release();
 
+	
+public: // 충돌 처리 필요 시 override
+	virtual void OnColliderBeginOverlap(Collider* collider, Collider* other);
+	virtual void OnColliderEndOverlap(Collider* collider, Collider* other);
+
 public:
 	Pos GetPos() const { return _pos; }
-	void SetPos(Pos pos) { _pos = pos; }
-	ObjectType GetObjectType() const { return _objectType; }
-	void SetObjectType(ObjectType objectType) { _objectType = objectType; }
+	virtual void SetPos(Pos pos) { _pos = pos; }
+	wstring GetTag() const { return _tag; }
+	void SetTag(wstring tag) { _tag = tag; }
 
 protected:
 	Pos _pos = {};
-	ObjectType _objectType = ObjectType::None;
+	wstring _tag = {};
 
 public:
 	template<typename T>
@@ -42,10 +47,6 @@ public:
 
 protected:
 	vector<Component*> _components;
-
-public:
-	virtual void OnColliderBeginOverlap(Collider* collider, Collider* other);
-	virtual void OnColliderEndOverlap(Collider* collider, Collider* other);
 
 public:
 	template<typename T>

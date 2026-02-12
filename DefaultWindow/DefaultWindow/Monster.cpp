@@ -4,26 +4,26 @@
 #include "BoxCollider.h"
 #include "CircleCollider.h"
 #include "Collider.h"
-
-Monster::Monster()
-{
-	SetObjectType(ObjectType::Monster);
-	AddComponent<BoxCollider>()->SetSize({ 50, 50 });
-}
-
-Monster::~Monster()
-{
-}
+#include "Player.h"
 
 void Monster::Init()
 {
 	__super::Init();
+
+	SetTag(L"Monster");
+	AddComponent<BoxCollider>()->SetSize({ 50, 50 });
 }
 
 void Monster::Update()
 {
 	__super::Update();
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
+
+	if (_followPlayer)
+	{
+		_dir = Vec2(_player->GetPos().x - _pos.x, _player->GetPos().y - _pos.y);
+		_dir.Normalize();
+	}
 
 	_pos += _dir * _speed * deltaTime;
 }
@@ -41,12 +41,20 @@ void Monster::Release()
 
 void Monster::OnColliderBeginOverlap(Collider* collider, Collider* other)
 {
-	if (other->GetOwner()->GetObjectType() == ObjectType::Wall)
+	if (_followPlayer == false)
 	{
-		_dir *= -1;
+		if (other->GetOwner()->GetTag() == L"Wall")
+		{
+			_dir *= -1;
+		}
 	}
+	
 }
 
-void Monster::OnColliderEndOverlap(Collider* collider, Collider* other)
+void Monster::SetFollowPlayer(bool followPlayer)
 {
+	if (followPlayer == false)
+		_dir = { 1, 0 };
+
+	_followPlayer = followPlayer;
 }

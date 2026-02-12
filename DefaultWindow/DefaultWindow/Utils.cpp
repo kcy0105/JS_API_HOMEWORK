@@ -24,3 +24,8 @@ void Utils::DrawLine(HDC hdc, Pos from, Pos to)
 	::MoveToEx(hdc, static_cast<int32>(from.x), static_cast<int32>(from.y), nullptr);
 	::LineTo(hdc, static_cast<int32>(to.x), static_cast<int32>(to.y));
 }
+
+Vec2 Utils::GetDirection(float angle)
+{
+	return Vec2(::cos(angle * DEG2RAD), -::sin(angle * DEG2RAD));
+}

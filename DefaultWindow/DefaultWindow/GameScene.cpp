@@ -34,13 +34,33 @@ void GameScene::Init()
 		wall->SetSize({ 100, 600 });
 	}
 	
+	{
+		_player = Object::CreateObject<Player>();
+		_player->SetPos({ 400, 450 });
+	}
+	
+	{
+		Monster* monster = Object::CreateObject<Monster>();
+		monster->SetPos({ 450, 200 });
+		monster->SetPlayer(_player);
+		monster->SetFollowPlayer(false);
+	}
 
+	{
+		Monster* monster = Object::CreateObject<Monster>();
+		monster->SetPos({ 550, 200 });
+		monster->SetPlayer(_player);
+		monster->SetFollowPlayer(true);
+	}
 
-	_player = Object::CreateObject<Player>();
-	_player->SetPos({ 400, 450 });
+	{
+		Monster* monster = Object::CreateObject<Monster>();
+		monster->SetPos({ 350, 200 });
+		monster->SetPlayer(_player);
+		monster->SetFollowPlayer(true);
+	}
 
-	Monster* monster = Object::CreateObject<Monster>();
-	monster->SetPos({ 450, 200 });
+	
 }
 
 void GameScene::Update()

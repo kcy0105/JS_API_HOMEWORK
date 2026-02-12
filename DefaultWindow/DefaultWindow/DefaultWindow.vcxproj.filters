@@ -39,6 +39,9 @@
     <Filter Include="소스 파일\04. Component\Collision">
       <UniqueIdentifier>{64c983c0-146c-434e-b97d-a75323b15068}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Obj\Game\Projectile">
+      <UniqueIdentifier>{25568eaa-4afe-43c2-b392-6d1a18a012b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -89,9 +92,6 @@
     <ClInclude Include="Player.h">
       <Filter>소스 파일\03. Obj\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>소스 파일\03. Obj\Game</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>소스 파일\01. Manager</Filter>
     </ClInclude>
@@ -118,6 +118,18 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbitShield.h">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrewMissile.h">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +163,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일\03. Obj\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>소스 파일\03. Obj\Game</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
     </ClCompile>
@@ -177,6 +186,18 @@
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitShield.cpp">
+      <Filter>소스 파일\03. Obj\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrewMissile.cpp">
+      <Filter>소스 파일\03. Obj\Game\Projectile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
