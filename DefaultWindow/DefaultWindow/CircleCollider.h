@@ -12,7 +12,7 @@ public:
 
 	virtual bool CheckCollision(Collider* other) override;
 
-	float GetRadius() const { return _radius; }
+	float GetRadius() { return _radius; }
 	void SetRadius(float radius) { _radius = radius; }
 
 

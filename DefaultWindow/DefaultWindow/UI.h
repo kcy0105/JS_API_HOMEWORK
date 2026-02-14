@@ -7,16 +7,21 @@ public:
 	UI() {}
 	virtual ~UI() {}
 
-	virtual void Init();
-	virtual void Update();
-	virtual void Render(HDC hdc);
-	virtual void Release();
+	virtual void Init() {}
+	virtual void Update() {}
+	virtual void Render(HDC hdc) {}
+	virtual void Release() {}
 
 	void SetPos(Vec2 pos) { _pos = pos; }
 	Vec2 GetPos() { return _pos; }
 
 	RECT GetRect();
 	bool IsMouseInRect();
+
+public: // Scene 및 UI 내에서 호출
+	virtual void UpdateIncludeChilds();
+	virtual void RenderIncludeChilds(HDC hdc);
+	virtual void ReleaseIncludeChilds();
 
 protected:
 	Vec2	_pos = { 400, 300 };

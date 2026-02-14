@@ -17,7 +17,7 @@ public:
 
 	virtual bool CheckCollision(Collider* other) = 0;
 	
-	ColliderType GetColliderType() const { return _colliderType; }
+	ColliderType GetColliderType() { return _colliderType; }
 	void SetShowDebug(bool bShowDebug) { _showDebug = bShowDebug; }
 
 public:

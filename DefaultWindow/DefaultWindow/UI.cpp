@@ -2,34 +2,6 @@
 #include "UI.h"
 #include "InputManager.h"
 
-void UI::Init()
-{
-
-}
-
-void UI::Update()
-{
-	for (UI* child : _children)
-		child->Update();
-}
-
-void UI::Render(HDC hdc)
-{
-	for (UI* child : _children)
-		child->Render(hdc);
-}
-
-void UI::Release()
-{
-	for (UI* child : _children)
-	{
-		child->Release();
-		SAFE_DELETE(child);
-	}
-
-	_children.clear();
-}
-
 RECT UI::GetRect()
 {
 	RECT rect =
@@ -50,6 +22,32 @@ bool UI::IsMouseInRect()
 	POINT mousePos = GET_SINGLE(InputManager)->GetMousePos();
 
 	return ::PtInRect(&rect, mousePos);
+}
+
+void UI::UpdateIncludeChilds()
+{
+	Update();
+	for (UI* child : _children)
+		child->UpdateIncludeChilds();
+}
+
+void UI::RenderIncludeChilds(HDC hdc)
+{
+	Render(hdc);
+	for (UI* child : _children)
+		child->RenderIncludeChilds(hdc);
+}
+
+void UI::ReleaseIncludeChilds()
+{
+	Release();
+	for (UI* child : _children)
+	{
+		child->ReleaseIncludeChilds();
+		SAFE_DELETE(child);
+	}
+
+	_children.clear();
 }
 
 void UI::AddChild(UI* ui)

@@ -2,25 +2,30 @@
 #include "Object.h"
 #include "Component.h"
 
-void Object::Init()
+void Object::UpdateIncludeComponents()
 {
-
-}
-
-void Object::Update()
-{
+	Update();
 	for (Component* component : _components)
 		component->Update();
 }
 
-void Object::Render(HDC hdc)
+void Object::LateUpdateIncludeComponents()
 {
+	LateUpdate();
+	for (Component* component : _components)
+		component->LateUpdate();
+}
+
+void Object::RenderIncludeComponents(HDC hdc)
+{
+	Render(hdc);
 	for (Component* component : _components)
 		component->Render(hdc);
 }
 
-void Object::Release()
+void Object::ReleaseIncludeComponents()
 {
+	Release();
 	for (Component* component : _components)
 	{
 		component->Release();
@@ -28,7 +33,6 @@ void Object::Release()
 	}
 
 	_components.clear();
-		
 }
 
 void Object::RemoveComponent(Component* component)

@@ -8,15 +8,12 @@
 
 void Monster::Init()
 {
-	__super::Init();
-
 	SetTag(L"Monster");
 	AddComponent<BoxCollider>()->SetSize({ 50, 50 });
 }
 
 void Monster::Update()
 {
-	__super::Update();
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
 	if (_followPlayer)
@@ -30,13 +27,11 @@ void Monster::Update()
 
 void Monster::Render(HDC hdc)
 {
-	__super::Render(hdc);
 	Utils::DrawRectInWorld(hdc, _pos, static_cast<int>(_size), static_cast<int>(_size));
 }
 
 void Monster::Release()
 {
-	__super::Release();
 }
 
 void Monster::OnColliderBeginOverlap(Collider* collider, Collider* other)

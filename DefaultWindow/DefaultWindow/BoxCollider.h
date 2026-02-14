@@ -12,7 +12,7 @@ public:
 
 	virtual bool CheckCollision(Collider* other) override;
 
-	Vec2 GetSize() const { return _size; }
+	Vec2 GetSize() { return _size; }
 	void SetSize(Vec2 size) { _size = size; }
 
 private:

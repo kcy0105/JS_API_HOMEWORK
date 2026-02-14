@@ -8,8 +8,8 @@ public:
 	void Init();
 	void Update();
 
-	uint32 GetFps() const { return _fps; }
-	float GetDeltaTime() const { return _deltaTime; }
+	uint32 GetFps() { return _fps; }
+	float GetDeltaTime() { return _deltaTime; }
 
 private:
 	uint64 _frequency = 0;

@@ -8,8 +8,6 @@
 
 void Player::Init()
 {
-	__super::Init();
-
 	SetTag(L"Player");
 	_orbitShield = Object::CreateObject<OrbitShield>();
 	_orbitShield->SetOwner(this);
@@ -17,8 +15,6 @@ void Player::Init()
 
 void Player::Update()
 {
-	__super::Update();
-
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 	
 #pragma region MOVE
@@ -78,8 +74,6 @@ void Player::Update()
 
 void Player::Render(HDC hdc)
 {
-	__super::Render(hdc);
-
 	// Body
 	Utils::DrawCircleInWorld(hdc, _pos, 25);
 
@@ -108,8 +102,6 @@ void Player::Render(HDC hdc)
 
 void Player::Release()
 {
-	__super::Release();
-
 	if (_orbitShield)
 		Object::DestroyObject(_orbitShield);
 }

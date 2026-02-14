@@ -5,16 +5,12 @@
 
 void OrbitShield::Init()
 {
-	__super::Init();
-
 	SetTag(L"OrbitShield");
 	AddComponent<CircleCollider>()->SetRadius(_radius);
 }
 
 void OrbitShield::Update()
 {
-	__super::Update();
-
 	if (!_owner)
 		return;
 
@@ -27,8 +23,6 @@ void OrbitShield::Update()
 
 void OrbitShield::Render(HDC hdc)
 {
-	__super::Render(hdc);
-
 	if (!_owner)
 		return;
 
@@ -37,7 +31,6 @@ void OrbitShield::Render(HDC hdc)
 
 void OrbitShield::Release()
 {
-	__super::Release();
 }
 
 void OrbitShield::OnColliderBeginOverlap(Collider* collider, Collider* other)

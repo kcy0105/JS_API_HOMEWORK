@@ -42,26 +42,26 @@ void GameScene::Init()
 		_player->SetPos({ 400, 300 });
 	}
 	
-	{
-		Monster* monster = Object::CreateObject<Monster>();
-		monster->SetPos({ 450, 200 });
-		monster->SetPlayer(_player);
-		monster->SetFollowPlayer(false);
-	}
+	//{
+	//	Monster* monster = Object::CreateObject<Monster>();
+	//	monster->SetPos({ 450, 200 });
+	//	monster->SetPlayer(_player);
+	//	monster->SetFollowPlayer(false);
+	//}
 
-	{
-		Monster* monster = Object::CreateObject<Monster>();
-		monster->SetPos({ 550, 200 });
-		monster->SetPlayer(_player);
-		monster->SetFollowPlayer(true);
-	}
+	//{
+	//	Monster* monster = Object::CreateObject<Monster>();
+	//	monster->SetPos({ 550, 200 });
+	//	monster->SetPlayer(_player);
+	//	monster->SetFollowPlayer(true);
+	//}
 
-	{
-		Monster* monster = Object::CreateObject<Monster>();
-		monster->SetPos({ 350, 200 });
-		monster->SetPlayer(_player);
-		monster->SetFollowPlayer(true);
-	}
+	//{
+	//	Monster* monster = Object::CreateObject<Monster>();
+	//	monster->SetPos({ 350, 200 });
+	//	monster->SetPlayer(_player);
+	//	monster->SetFollowPlayer(true);
+	//}
 
 	{
 		Camera* camera = Object::CreateObject<Camera>();

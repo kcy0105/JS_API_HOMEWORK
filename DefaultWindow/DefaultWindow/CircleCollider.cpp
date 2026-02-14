@@ -22,7 +22,7 @@ void CircleCollider::Render(HDC hdc)
 
 	Vec2 pos = GetOwner()->GetPos();
 
-	HPEN pen = CreatePen(PS_SOLID, 3, RGB(0, 255, 0));
+	HPEN pen = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
 	HPEN oldPen = (HPEN)SelectObject(hdc, pen);
 
 	HBRUSH brush = (HBRUSH)GetStockObject(NULL_BRUSH);

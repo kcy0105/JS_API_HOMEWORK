@@ -19,6 +19,7 @@ void Scene::Init()
 void Scene::Update()
 {
 	UpdateObjects();
+	LateUpdateObjects();
 
 	GET_SINGLE(CollisionManager)->Update();
 
@@ -72,7 +73,7 @@ void Scene::RenderObjects(HDC hdc)
 {
 	for (Object* obj : _objects)
 	{
-		obj->Render(hdc);
+		obj->RenderIncludeComponents(hdc);
 	}
 }
 
@@ -81,7 +82,16 @@ void Scene::UpdateObjects()
 	const vector<Object*> objects = _objects;
 	for (Object* obj : objects)
 	{
-		obj->Update();
+		obj->UpdateIncludeComponents();
+	}
+}
+
+void Scene::LateUpdateObjects()
+{
+	const vector<Object*> objects = _objects;
+	for (Object* obj : objects)
+	{
+		obj->LateUpdateIncludeComponents();
 	}
 }
 
@@ -93,7 +103,7 @@ void Scene::RemoveDeadObjects()
 		if (obj->IsDead())
 		{
 			UnregisterObject(obj);
-			obj->Release();
+			obj->ReleaseIncludeComponents();
 			SAFE_DELETE(obj);
 		}
 	}
@@ -103,7 +113,7 @@ void Scene::ReleaseObjects()
 {
 	for (Object* obj : _objects)
 	{
-		obj->Release();
+		obj->ReleaseIncludeComponents();
 		SAFE_DELETE(obj);
 	}
 	_objects.clear();
@@ -111,9 +121,10 @@ void Scene::ReleaseObjects()
 
 void Scene::UpdateUIs()
 {
-	for (UI* ui : _uis)
+	const vector<UI*> uis = _uis;
+	for (UI* ui : uis)
 	{
-		ui->Update();
+		ui->UpdateIncludeChilds();
 	}
 }
 
@@ -121,7 +132,7 @@ void Scene::RenderUIs(HDC hdc)
 {
 	for (UI* ui : _uis)
 	{
-		ui->Render(hdc);
+		ui->RenderIncludeChilds(hdc);
 	}
 }
 
@@ -133,7 +144,7 @@ void Scene::RemoveDeadUIs()
 		if (ui->IsDead())
 		{
 			UnregisterUI(ui);
-			ui->Release();
+			ui->ReleaseIncludeChilds();
 			SAFE_DELETE(ui);
 		}
 	}
@@ -143,7 +154,7 @@ void Scene::ReleaseUIs()
 {
 	for (UI* ui : _uis)
 	{
-		ui->Release();
+		ui->ReleaseIncludeChilds();
 		SAFE_DELETE(ui);
 	}
 	_uis.clear();

@@ -10,6 +10,11 @@ void CameraComponent::Init()
 void CameraComponent::Update()
 {
 	__super::Update();
+}
+
+void CameraComponent::LateUpdate()
+{
+	__super::LateUpdate();
 
 	if (_owner == nullptr)
 		return;

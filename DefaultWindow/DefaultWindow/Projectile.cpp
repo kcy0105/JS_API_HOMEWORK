@@ -5,15 +5,11 @@
 
 void Projectile::Init()
 {
-	__super::Init();
-
 	AddComponent<CircleCollider>()->SetRadius(_radius);
 }
 
 void Projectile::Update()
 {
-	__super::Update();
-	
 	UpdatePos();
 	
 	// 시간 경과하면 Destroy
@@ -21,13 +17,12 @@ void Projectile::Update()
 
 void Projectile::Render(HDC hdc)
 {
-	__super::Render(hdc);
 	Utils::DrawCircleInWorld(hdc, _pos, static_cast<int32>(_radius));
 }
 
 void Projectile::Release()
 {
-	__super::Release();
+
 }
 
 void Projectile::OnColliderBeginOverlap(Collider* collider, Collider* other)

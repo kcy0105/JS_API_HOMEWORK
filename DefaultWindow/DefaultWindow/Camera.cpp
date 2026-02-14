@@ -5,23 +5,22 @@
 
 void Camera::Init()
 {
-	__super::Init();
 	AddComponent<CameraComponent>();
 }
 
 void Camera::Update()
 {
-	__super::Update();
+}
 
+void Camera::LateUpdate()
+{
 	_pos = _player->GetPos();
 }
 
 void Camera::Render(HDC hdc)
 {
-	__super::Render(hdc);
 }
 
 void Camera::Release()
 {
-	__super::Release();
 }

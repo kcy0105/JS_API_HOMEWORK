@@ -5,15 +5,11 @@
 
 void Button::Init()
 {
-	__super::Init();
-
 	SetButtonState(BS_Default);
 }
 
 void Button::Update()
 {
-	__super::Update();
-
 	POINT mousePos = GET_SINGLE(InputManager)->GetMousePos();
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
@@ -53,8 +49,6 @@ void Button::Update()
 
 void Button::Render(HDC hdc)
 {
-	__super::Render(hdc);
-
 	//if (_currentSprite)
 	//{
 	//	::TransparentBlt(hdc,

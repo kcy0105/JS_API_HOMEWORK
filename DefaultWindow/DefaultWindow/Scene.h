@@ -21,6 +21,7 @@ public:
 
 private:
 	void UpdateObjects();
+	void LateUpdateObjects();
 	void RenderObjects(HDC hdc);
 	void RemoveDeadObjects();
 	void ReleaseObjects();
