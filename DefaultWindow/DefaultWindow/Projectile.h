@@ -26,5 +26,8 @@ protected:
 	Vec2 _dir = {};
 	float _speed = 500;
 	Object* _owner = {};
+
+private:
+	float _timeSum = 0.f;
 };
 

@@ -12,7 +12,12 @@ void Projectile::OnUpdate()
 {
 	UpdatePos();
 	
-	// 시간 경과하면 Destroy
+	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
+
+	_timeSum += deltaTime;
+
+	if (_timeSum > 3.f)
+		Destroy();
 }
 
 void Projectile::OnRender(HDC hdc)
