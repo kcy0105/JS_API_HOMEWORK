@@ -2,10 +2,8 @@
 #include "TestPanel.h"
 #include "Button.h"
 
-void TestPanel::Init()
+void TestPanel::OnInit()
 {
-	__super::Init();
-
 	{
 		Button* button = UI::CreateUI<Button>(this);
 		button->SetPos({ 400, 500 });
@@ -14,19 +12,16 @@ void TestPanel::Init()
 	}
 }
 
-void TestPanel::Update()
+void TestPanel::OnUpdate()
 {
-	__super::Update();
 }
 
-void TestPanel::Render(HDC hdc)
+void TestPanel::OnRender(HDC hdc)
 {
-	__super::Render(hdc);
 }
 
-void TestPanel::Release()
+void TestPanel::OnRelease()
 {
-	__super::Release();
 }
 
 void TestPanel::OnClickButton()

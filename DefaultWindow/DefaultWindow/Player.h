@@ -10,10 +10,10 @@ public:
 	Player() {}
 	virtual ~Player() {}
 
-	virtual void Init() override;
-	virtual void Update() override;
-	virtual void Render(HDC hdc) override;
-	virtual void Release() override;
+	virtual void OnInit() override;
+	virtual void OnUpdate() override;
+	virtual void OnRender(HDC hdc) override;
+	virtual void OnRelease() override;
 
 private:
 	float _moveSpeed = 200.f;

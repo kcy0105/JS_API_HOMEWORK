@@ -3,13 +3,13 @@
 #include "CircleCollider.h"
 #include "TimeManager.h"
 
-void OrbitShield::Init()
+void OrbitShield::OnInit()
 {
 	SetTag(L"OrbitShield");
 	AddComponent<CircleCollider>()->SetRadius(_radius);
 }
 
-void OrbitShield::Update()
+void OrbitShield::OnUpdate()
 {
 	if (!_owner)
 		return;
@@ -21,7 +21,7 @@ void OrbitShield::Update()
 	_pos = _owner->GetPos() + _orbitRadius * Utils::GetDirection(_angle);
 }
 
-void OrbitShield::Render(HDC hdc)
+void OrbitShield::OnRender(HDC hdc)
 {
 	if (!_owner)
 		return;
@@ -29,7 +29,7 @@ void OrbitShield::Render(HDC hdc)
 	Utils::DrawCircleInWorld(hdc, _pos, static_cast<int32>(_radius));
 }
 
-void OrbitShield::Release()
+void OrbitShield::OnRelease()
 {
 }
 

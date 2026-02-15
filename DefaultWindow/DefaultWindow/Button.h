@@ -19,10 +19,10 @@ public:
 	Button() {}
 	virtual ~Button() override {}
 
-	virtual void Init() override;
-	virtual void Update() override;
-	virtual void Render(HDC hdc) override;
-	virtual void Release() override;
+	virtual void OnInit() override;
+	virtual void OnUpdate() override;
+	virtual void OnRender(HDC hdc) override;
+	virtual void OnRelease() override;
 
 	void	SetSize(Vec2Int size) { _size = size; }
 	//Sprite* GetSprite(ButtonState state) { return _sprites[state]; }

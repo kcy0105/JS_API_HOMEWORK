@@ -2,22 +2,22 @@
 #include "Wall.h"
 #include "BoxCollider.h"
 
-void Wall::Init()
+void Wall::OnInit()
 {
 	SetTag(L"Wall");
 	_boxCollider = AddComponent<BoxCollider>();
 }
 
-void Wall::Update()
+void Wall::OnUpdate()
 {
 }
 
-void Wall::Render(HDC hdc)
+void Wall::OnRender(HDC hdc)
 {
 	Utils::DrawRectInWorld(hdc, _pos, static_cast<int>(_size.x), static_cast<int>(_size.y));
 }
 
-void Wall::Release()
+void Wall::OnRelease()
 {
 }
 

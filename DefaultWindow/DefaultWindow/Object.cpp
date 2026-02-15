@@ -2,30 +2,35 @@
 #include "Object.h"
 #include "Component.h"
 
-void Object::UpdateIncludeComponents()
+void Object::Init()
 {
-	Update();
+	OnInit();
+}
+
+void Object::Update()
+{
+	OnUpdate();
 	for (Component* component : _components)
 		component->Update();
 }
 
-void Object::LateUpdateIncludeComponents()
+void Object::LateUpdate()
 {
-	LateUpdate();
+	OnLateUpdate();
 	for (Component* component : _components)
 		component->LateUpdate();
 }
 
-void Object::RenderIncludeComponents(HDC hdc)
+void Object::Render(HDC hdc)
 {
-	Render(hdc);
+	OnRender(hdc);
 	for (Component* component : _components)
 		component->Render(hdc);
 }
 
-void Object::ReleaseIncludeComponents()
+void Object::Release()
 {
-	Release();
+	OnRelease();
 	for (Component* component : _components)
 	{
 		component->Release();

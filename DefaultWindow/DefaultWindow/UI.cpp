@@ -24,26 +24,31 @@ bool UI::IsMouseInRect()
 	return ::PtInRect(&rect, mousePos);
 }
 
-void UI::UpdateIncludeChilds()
+void UI::Init()
 {
-	Update();
-	for (UI* child : _children)
-		child->UpdateIncludeChilds();
+	OnInit();
 }
 
-void UI::RenderIncludeChilds(HDC hdc)
+void UI::Update()
 {
-	Render(hdc);
+	OnUpdate();
 	for (UI* child : _children)
-		child->RenderIncludeChilds(hdc);
+		child->Update();
 }
 
-void UI::ReleaseIncludeChilds()
+void UI::Render(HDC hdc)
 {
-	Release();
+	OnRender(hdc);
+	for (UI* child : _children)
+		child->Render(hdc);
+}
+
+void UI::Release()
+{
+	OnRelease();
 	for (UI* child : _children)
 	{
-		child->ReleaseIncludeChilds();
+		child->Release();
 		SAFE_DELETE(child);
 	}
 

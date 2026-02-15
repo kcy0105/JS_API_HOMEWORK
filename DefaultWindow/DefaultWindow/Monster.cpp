@@ -6,13 +6,13 @@
 #include "Collider.h"
 #include "Player.h"
 
-void Monster::Init()
+void Monster::OnInit()
 {
 	SetTag(L"Monster");
 	AddComponent<BoxCollider>()->SetSize({ 50, 50 });
 }
 
-void Monster::Update()
+void Monster::OnUpdate()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
@@ -25,12 +25,12 @@ void Monster::Update()
 	_pos += _dir * _speed * deltaTime;
 }
 
-void Monster::Render(HDC hdc)
+void Monster::OnRender(HDC hdc)
 {
 	Utils::DrawRectInWorld(hdc, _pos, static_cast<int>(_size), static_cast<int>(_size));
 }
 
-void Monster::Release()
+void Monster::OnRelease()
 {
 }
 

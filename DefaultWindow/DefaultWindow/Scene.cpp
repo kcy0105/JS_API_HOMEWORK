@@ -14,10 +14,13 @@ Scene::~Scene()
 
 void Scene::Init()
 {
+	OnInit();
 }
 
 void Scene::Update()
 {
+	OnUpdate();
+
 	UpdateObjects();
 	LateUpdateObjects();
 
@@ -30,12 +33,16 @@ void Scene::Update()
 
 void Scene::Render(HDC hdc)
 {
+	OnRender(hdc);
+
 	RenderObjects(hdc);
 	RenderUIs(hdc);
 }
 
 void Scene::Release()
 {
+	OnRelease();
+
 	ReleaseObjects();
 	ReleaseUIs();
 }
@@ -73,7 +80,7 @@ void Scene::RenderObjects(HDC hdc)
 {
 	for (Object* obj : _objects)
 	{
-		obj->RenderIncludeComponents(hdc);
+		obj->Render(hdc);
 	}
 }
 
@@ -82,7 +89,7 @@ void Scene::UpdateObjects()
 	const vector<Object*> objects = _objects;
 	for (Object* obj : objects)
 	{
-		obj->UpdateIncludeComponents();
+		obj->Update();
 	}
 }
 
@@ -91,7 +98,7 @@ void Scene::LateUpdateObjects()
 	const vector<Object*> objects = _objects;
 	for (Object* obj : objects)
 	{
-		obj->LateUpdateIncludeComponents();
+		obj->LateUpdate();
 	}
 }
 
@@ -103,7 +110,7 @@ void Scene::RemoveDeadObjects()
 		if (obj->IsDead())
 		{
 			UnregisterObject(obj);
-			obj->ReleaseIncludeComponents();
+			obj->Release();
 			SAFE_DELETE(obj);
 		}
 	}
@@ -113,7 +120,7 @@ void Scene::ReleaseObjects()
 {
 	for (Object* obj : _objects)
 	{
-		obj->ReleaseIncludeComponents();
+		obj->Release();
 		SAFE_DELETE(obj);
 	}
 	_objects.clear();
@@ -124,7 +131,7 @@ void Scene::UpdateUIs()
 	const vector<UI*> uis = _uis;
 	for (UI* ui : uis)
 	{
-		ui->UpdateIncludeChilds();
+		ui->Update();
 	}
 }
 
@@ -132,7 +139,7 @@ void Scene::RenderUIs(HDC hdc)
 {
 	for (UI* ui : _uis)
 	{
-		ui->RenderIncludeChilds(hdc);
+		ui->Render(hdc);
 	}
 }
 
@@ -144,7 +151,7 @@ void Scene::RemoveDeadUIs()
 		if (ui->IsDead())
 		{
 			UnregisterUI(ui);
-			ui->ReleaseIncludeChilds();
+			ui->Release();
 			SAFE_DELETE(ui);
 		}
 	}
@@ -154,7 +161,7 @@ void Scene::ReleaseUIs()
 {
 	for (UI* ui : _uis)
 	{
-		ui->ReleaseIncludeChilds();
+		ui->Release();
 		SAFE_DELETE(ui);
 	}
 	_uis.clear();

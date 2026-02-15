@@ -3,24 +3,24 @@
 #include "CameraComponent.h"
 #include "Player.h"
 
-void Camera::Init()
+void Camera::OnInit()
 {
 	AddComponent<CameraComponent>();
 }
 
-void Camera::Update()
+void Camera::OnUpdate()
 {
 }
 
-void Camera::LateUpdate()
+void Camera::OnLateUpdate()
 {
 	_pos = _player->GetPos();
 }
 
-void Camera::Render(HDC hdc)
+void Camera::OnRender(HDC hdc)
 {
 }
 
-void Camera::Release()
+void Camera::OnRelease()
 {
 }

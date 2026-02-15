@@ -3,24 +3,24 @@
 #include "TimeManager.h"
 #include "CircleCollider.h"
 
-void Projectile::Init()
+void Projectile::OnInit()
 {
 	AddComponent<CircleCollider>()->SetRadius(_radius);
 }
 
-void Projectile::Update()
+void Projectile::OnUpdate()
 {
 	UpdatePos();
 	
 	// 시간 경과하면 Destroy
 }
 
-void Projectile::Render(HDC hdc)
+void Projectile::OnRender(HDC hdc)
 {
 	Utils::DrawCircleInWorld(hdc, _pos, static_cast<int32>(_radius));
 }
 
-void Projectile::Release()
+void Projectile::OnRelease()
 {
 
 }

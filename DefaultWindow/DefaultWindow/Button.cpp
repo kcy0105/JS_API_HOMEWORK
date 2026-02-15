@@ -3,12 +3,12 @@
 #include "InputManager.h"
 #include "TimeManager.h"
 
-void Button::Init()
+void Button::OnInit()
 {
 	SetButtonState(BS_Default);
 }
 
-void Button::Update()
+void Button::OnUpdate()
 {
 	POINT mousePos = GET_SINGLE(InputManager)->GetMousePos();
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
@@ -47,7 +47,7 @@ void Button::Update()
 	}
 }
 
-void Button::Render(HDC hdc)
+void Button::OnRender(HDC hdc)
 {
 	//if (_currentSprite)
 	//{
@@ -69,7 +69,7 @@ void Button::Render(HDC hdc)
 	}
 }
 
-void Button::Release()
+void Button::OnRelease()
 {
 }
 

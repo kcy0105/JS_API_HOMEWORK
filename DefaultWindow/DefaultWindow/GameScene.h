@@ -9,9 +9,9 @@ public:
 	GameScene();
 	virtual ~GameScene() override;
 
-	virtual void Init() override;
-	virtual void Update() override;
-	virtual void Release() override;
+	virtual void OnInit() override;
+	virtual void OnUpdate() override;
+	virtual void OnRelease() override;
 
 private:
 	Player* _player = {};

@@ -8,16 +8,22 @@ public:
 	Scene();
 	virtual ~Scene();
 
-	virtual void Init();
-	virtual void Update();
+	void Init();
+	void Update();
 	void Render(HDC hdc);
-	virtual void Release();
+	void Release();
 
 	void RegisterObject(Object* obj);
 	void UnregisterObject(Object* obj);
 
 	void RegisterUI(UI* ui);
 	void UnregisterUI(UI* ui);
+
+protected:
+	virtual void OnInit() {}
+	virtual void OnUpdate() {}
+	virtual void OnRender(HDC hdc) {}
+	virtual void OnRelease() {}
 
 private:
 	void UpdateObjects();

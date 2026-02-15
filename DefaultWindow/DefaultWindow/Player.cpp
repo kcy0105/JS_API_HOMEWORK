@@ -6,14 +6,14 @@
 #include "Bullet.h"
 #include "ScrewMissile.h"
 
-void Player::Init()
+void Player::OnInit()
 {
 	SetTag(L"Player");
 	_orbitShield = Object::CreateObject<OrbitShield>();
 	_orbitShield->SetOwner(this);
 }
 
-void Player::Update()
+void Player::OnUpdate()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 	
@@ -72,7 +72,7 @@ void Player::Update()
 #pragma endregion
 }
 
-void Player::Render(HDC hdc)
+void Player::OnRender(HDC hdc)
 {
 	// Body
 	Utils::DrawCircleInWorld(hdc, _pos, 25);
@@ -100,7 +100,7 @@ void Player::Render(HDC hdc)
 
 }
 
-void Player::Release()
+void Player::OnRelease()
 {
 	if (_orbitShield)
 		Object::DestroyObject(_orbitShield);

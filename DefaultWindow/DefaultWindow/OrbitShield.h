@@ -7,10 +7,10 @@ public:
 	virtual ~OrbitShield() {}
 
 public:
-	virtual void Init();
-	virtual void Update();
-	virtual void Render(HDC hdc);
-	virtual void Release();
+	virtual void OnInit();
+	virtual void OnUpdate();
+	virtual void OnRender(HDC hdc);
+	virtual void OnRelease();
 
 	virtual void OnColliderBeginOverlap(Collider* collider, Collider* other) override;
 

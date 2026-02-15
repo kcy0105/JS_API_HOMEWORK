@@ -12,18 +12,18 @@ public:
 	virtual ~Object() {};
 
 public:
-	virtual void Init() {} // Object를 상속받은 클래스의 자식 클래스에서 첫번째에 __super.Init() 사용
-	virtual void Update() {}
-	virtual void LateUpdate() {} // 필요할 때만 override
-	virtual void Render(HDC hdc) {}
-	virtual void Release() {} // Object를 상속받은 클래스의 자식 클래스에서 마지막에 __super.Init() 사용
+	void Init();
+	void Update();
+	void LateUpdate();
+	void Render(HDC hdc);
+	void Release();
 
-public: // Scene에서 호출
-	// Init은 컴포넌트 추가 시 실행된다.
-	virtual void UpdateIncludeComponents();
-	virtual void LateUpdateIncludeComponents();
-	virtual void RenderIncludeComponents(HDC hdc);
-	virtual void ReleaseIncludeComponents();
+protected:
+	virtual void OnInit() {}
+	virtual void OnUpdate() {}
+	virtual void OnLateUpdate() {}
+	virtual void OnRender(HDC hdc) {}
+	virtual void OnRelease() {}
 	
 public: // 충돌 처리 필요 시 override
 	virtual void OnColliderBeginOverlap(Collider* collider, Collider* other) {}

@@ -9,10 +9,10 @@ public:
 	Monster() {}
 	virtual ~Monster() {}
 
-	virtual void Init() override;
-	virtual void Update() override;
-	virtual void Render(HDC hdc) override;
-	virtual void Release() override;
+	virtual void OnInit() override;
+	virtual void OnUpdate() override;
+	virtual void OnRender(HDC hdc) override;
+	virtual void OnRelease() override;
 
 public:
 	virtual void OnColliderBeginOverlap(Collider* collider, Collider* other) override;
